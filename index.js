@@ -26,8 +26,9 @@ async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
+    // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+    console.log("You successfully connected to MongoDB!");
     // Send a ping to confirm a successful connection
     const database = client.db("craftDB");
     const Products = database.collection("products");
@@ -77,8 +78,6 @@ async function run() {
         res.send(result)
   
       })
-
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
   } finally {
     // Ensures that the client will close when you finish/error
     // await client.close();
